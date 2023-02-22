@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizacion</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+
+        <center>
+            <h1>Cotizacion</h1>
+
+            <form action="/cotizacion" method="post">
+
+                <label for="">Valor del automovil</label>
+
+                <input type="number" name="valor" id="valor" required="true">
+
+                <label for="">Procentaje de pago incial</label>
+
+                <select name="pInicial" id="pInicial">
+                    <option value="10">10%</option>
+                    <option value="20">20%</option>
+                    <option value="30">30%</option>
+                    <option value="50">50%</option>
+                    <option value="70">70%</option>
+                </select>
+                <br>
+
+                <label for="">Plazos</label>
+                <select name="plazos" id="plazos">
+                    <option value="12">12 meses</option>
+                    <option value="24">24 meses</option>
+                    <option value="36">36 meses</option>
+                    <option value="48">48 meses</option>
+                    <option value="60">60 meses</option>
+                    <option value="72">72 meses</option>
+                </select>
+
+            </form>
+        </center>
+    </div>
+
+    <%
+        if(pInicial!=0){
+            let pagoInicial = 0;
+            let totalFin = 0;
+            let pagoMensual = 0;
+
+            pagoInicial = valor * (pInicial/100);
+            totalFin = valor - pagoInicial;
+            pagoMensual = totalFin/plazos;
+            %>
+            <center>
+                <br>
+                <hr>
+                <h3>Resumen de la cotizacion</h3>
+                <br>
+                <hr>
+                Valor del automovil: <%=valor%>
+                <br>
+                Procentaje de pago inicial: <%=pInicial%>
+                <br>
+                Plazos: <%=plazos%>
+                <br>
+                Pago Inicial : <%=pagoInicial%>
+                <br>
+                Total a Financiar : <%=totalFin%>
+                <br>
+                Pago Mensual : <%=pagoMensual%>
+            </center>
+            <%
+        }
+    %>
+    
+</body>
+</html>

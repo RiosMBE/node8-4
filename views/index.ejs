@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Practica 01 EJS</title>
+    
+</head>
+<body>
+    <div id="container">
+
+        <center>
+            <h1><%=titulo%></h1>
+            <img src="./img/LogoUpsin.png" style="height: 200px;" alt="">
+        </center>
+
+        <table class="table table-stripad table-bordered table-hover">
+            <tr class="table-dark">
+                <th>Matricula</th>
+                <th>Nombre</th>
+                <th>Sexo</th>
+                <th>Materias</th>
+            </tr>
+
+            <% for(alumno of listado ){%>
+
+                <tr>
+                    <th><%=alumno.matricula%></th>
+                    <th><%=alumno.nombre%></th>
+                    <th><%=alumno.sexo%></th>
+                    <th><%=alumno.materias%></th>
+                </tr>
+            <%
+            }
+            %>
+        </table>
+    </div>
+</body>
+</html>
